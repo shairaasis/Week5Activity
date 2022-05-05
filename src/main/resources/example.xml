@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- 
+  - This file is included by the struts.xml file as an example
+  - of how to break up the configuration file into multiple files.
+-->
+<struts>
+    <package name="example" namespace="/example" extends="struts-default">
+
+        <default-action-ref name="HelloWorld" />
+
+        <action name="Navigation" class="com.sample.example.Navigation">
+            <result>/WEB-INF/example/Navigation.jsp</result>
+        </action>
+
+        <action name="Index" class="com.sample.example.Index">
+            <result>/Index.jsp</result>
+        </action>
+
+        <action name="NewLogin" class="com.sample.example.NewLogin">
+            <result>/WEB-INF/example/NewLogin.jsp</result>
+            <result name="successlogin">/WEB-INF/example/SuccessLogin.jsp</result>
+            <result name="failedlogin">/WEB-INF/example/ErrorLogin.jsp</result>
+        </action>
+
+
+
+        <action name="About" class="com.sample.example.About">
+            <result>/WEB-INF/example/About.jsp</result>
+        </action>
+        <action name="ErrorLogin" class="com.sample.example.ErrorLogin">
+            <result>/WEB-INF/example/ErrorLogin.jsp</result>
+        </action>
+        <action name="SuccessLogin" class="com.sample.example.SuccessLogin">
+            <result>/WEB-INF/example/SuccessLogin.jsp</result>
+        </action>
+
+
+        <action name="Contact" class="com.sample.example.Contact">
+            <result>/WEB-INF/example/Contact.jsp</result>
+        </action>
+
+        <action name="HelloWorld" class="com.sample.example.HelloWorld">
+            <result>/WEB-INF/example/HelloWorld.jsp</result>
+        </action>
+
+        <action name="Login_*" method="{1}" class="com.sample.example.Login">
+            <result name="input">/WEB-INF/example/Login.jsp</result>
+            <result type="redirectAction">Menu</result>
+        </action>
+
+        <action name="*" class="com.sample.example.ExampleSupport">
+            <result>/WEB-INF/example/{1}.jsp</result>
+        </action>
+
+        <!-- Add additional "example" package actions here. -->
+
+    </package>
+</struts>
